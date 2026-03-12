@@ -27,7 +27,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="not-prose my-12 -mx-4 sm:-mx-6 md:-mx-8 px-4 sm:px-6 md:px-8 py-12 bg-muted/50">
+    <section className="not-prose my-12 -mx-4 sm:-mx-6 md:-mx-8 px-4 sm:px-6 md:px-8 py-12 bg-muted/30">
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="text-center mb-10">
@@ -40,13 +40,13 @@ export function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="relative grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-0">
+        <div className="relative grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {/* Connecting line - desktop only */}
           <div
-            className="absolute top-12 left-[calc(16.67%+1.5rem)] right-[calc(16.67%+1.5rem)] hidden md:block"
+            className="absolute top-10 left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)] hidden md:block"
             aria-hidden="true"
           >
-            <div className="h-px w-full border-t-2 border-dashed border-border" />
+            <div className="h-px w-full border-t border-dashed border-border/50" />
           </div>
 
           {steps.map((step, index) => (
@@ -54,18 +54,17 @@ export function HowItWorks() {
               {/* Card */}
               <div
                 className={cn(
-                  "relative flex w-full flex-col items-center rounded-lg border border-border bg-background p-6 text-center shadow-sm transition-colors hover:border-foreground/20",
-                  "md:mx-3"
+                  "relative flex w-full flex-col items-center rounded-lg border border-border bg-background p-6 text-center transition-colors hover:border-success/40"
                 )}
               >
                 {/* Number badge */}
-                <span className="absolute -top-3 left-4 flex h-6 w-6 items-center justify-center rounded-full bg-foreground text-xs font-medium text-background">
+                <span className="absolute -top-3 left-4 flex h-6 w-6 items-center justify-center rounded-full bg-success text-xs font-medium text-white">
                   {step.number}
                 </span>
 
                 {/* Icon */}
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-muted">
-                  <step.icon className="h-6 w-6 text-foreground" />
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-success/10">
+                  <step.icon className="h-5 w-5 text-success" />
                 </div>
 
                 {/* Title */}
@@ -79,22 +78,10 @@ export function HowItWorks() {
                 </p>
               </div>
 
-              {/* Mobile connecting arrow */}
+              {/* Mobile connecting line */}
               {index < steps.length - 1 && (
-                <div className="my-4 flex items-center justify-center md:hidden">
-                  <svg
-                    className="h-6 w-6 text-muted-foreground"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                    />
-                  </svg>
+                <div className="my-3 flex items-center justify-center md:hidden">
+                  <div className="h-4 w-px border-l border-dashed border-border/50" />
                 </div>
               )}
             </div>
